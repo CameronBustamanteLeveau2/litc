@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost In The Cloud</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+        
+<!-- 1. SECCIÓN DE PORTADA -->
+
+<header id="mainheader">
+    
+    <nav id="navbar">
+        <div class="container">
+<button class="logo">고마움</button>
+<ul>
+    <li><a href="#">Home</a></li>
+<li><a href="https://www.lezhin.es/detail/en-la-nube">Leer</a></li>
+</ul>
+    </div>
+    </nav>
+
+    <div id="showcase">
+<div class="container2">
+ <h1 class="display-1">Lost <br> in <br> the  <br>cloud</h
+    1>
+
+</div>
+    </div>
+</header>
+
+
+
+<!-- 2. SECCIÓN DE PERSONAJES -->
+<section class="main-characters">
+    <div class="characters-icons">
+        
+        <img src="assets/skylar.png" class="char-icon" data-panel="skylar">
+        <img src="assets/cirrus.png" class="char-icon" data-panel="cirrus">
+    </div>
+
+    <hr>
+
+<div class="panel-wrapper">
+<img id="panel-img" class="panel-img" src="assets/skylar-panel.png">
+</div>
+</section>
+
+
+
+    <div class="candy-section">
+
+
+<main class="container-candy">
+<img src="assets/___3_-removebg-preview.png"  class="nube-larga">
+<img src="assets/___3_-removebg-preview.png"  class="nube-derecha">
+
+    <section id="character-detail-section">
+        <div class="character-display">
+            <img id="character-image" src="" alt="Imagen del Personaje">
+            <div class="character-info">
+                <img src="assets/Apuntes___1_-removebg-preview.png" class="nube-rosa">
+
+                <h2 id="character-name">Nombre del Personaje</h2>
+                <p id="character-description">Descripción del personaje...</p>
+            </div>
+            <img src="assets/___2_-removebg-preview.png"  class="nube-1">
+<img src="assets/___2_-removebg-preview.png"  class="nube-2">
+<img src="assets/___2_-removebg-preview.png"  class="nube-3">
+<img src="assets/___2_-removebg-preview.png"  class="nube-4">
+<img src="assets/___2_-removebg-preview.png"  class="nube-5">
+</div>
+       
+        <div id="avatar-container">
+            </div>
+
+    </section>
+
+
+
+
+
+
+
+
+            </div>
+      
+
+   <section id="scene-section">
+            <div class="scene-card">
+                <img src="assets/imagen2.png"
+                     alt="Escena 1">
+                <div class="scene-card-content">
+                    <p>
+“I'm good at picking up signals. I can figure out what someone is thinking or feeling with just the smallest changes in their facial expression, and I genuinely believe Cirrus might have feelings for me.”                    </p>
+                </div>
+            </div>
+            <!-- Bloque 2 -->
+            <div class="scene-card">
+                <img src="assets/imagen3.png"
+                     alt="Escena 2">
+                <div class="scene-card-content">
+                    <p>
+“The future you envision ... now it´s my dream”                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. SECCIÓN DE CITAS Y TEXTO DE FONDO -->
+           <section id="scene-section">
+
+        <div class="scene-card2">
+            <!-- Imagen de fondo que simula la escena oscura -->
+            <img src="assets/imagen1.png"
+                 alt="Fondo de cita">
+                <div class="scene-card-content2">
+                <p>
+“Skylar im terrified afraid that you'll live a normal life and leave me all alone afraid that without me you'll find your happiness afraid that without you i won't be able to go on”                </p>
+            </div>
+                    </div>
+        </section>
+
+
+        <!-- 6. SECCIÓN DE TEMPORADAS (SEASONS) -->
+        <section id="seasons-section">
+            
+            <img src="assets/thankfull2.png" alt="">
+            <h3>Reason: </h3>
+            <div class="seasons-text-box">
+                <p>
+I made this project thinking about something that positively impacted my life. 
+
+There aren't enough words to express the depth of the impact that Lost in the Cloud has had on my life. More than just a simple story, this manwha became a mirror, a comfort, and, above all, an unexpected guide at a crucial moment in my life.                </p>
+             
+            </div>
+        </section>
+    </main>
+
+    <!-- Script de JavaScript para la interactividad y la API -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const API_URL = 'http://localhost:3002/api/personajes';
+
+            const avatarContainer = document.getElementById('avatar-container');
+            const characterImage = document.getElementById('character-image');
+            const characterName = document.getElementById('character-name');
+            const characterDescription = document.getElementById('character-description');
+
+            let allCharacters = [];
+
+          
+            function displayCharacter(character) {
+                // 1. Iniciar animación de "fade out"
+                characterImage.style.opacity = '0';
+                characterName.style.opacity = '0';
+                characterDescription.style.opacity = '0';
+
+                // 2. Esperar la transición y actualizar el contenido
+                setTimeout(() => {
+                    characterImage.src = character.avatar_src;
+                    characterImage.alt = character.name;
+                    characterName.textContent = character.name;
+                    characterDescription.textContent = character.info;
+
+                    // 3. Iniciar animación de "fade in"
+                    characterImage.style.opacity = '1';
+                    characterName.style.opacity = '1';
+                    characterDescription.style.opacity = '1';
+                }, 150); // Tiempo de espera para la transición CSS
+
+                // Actualizar el estado activo de los avatares
+                document.querySelectorAll('.avatar-button').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+
+                const activeBtn = document.getElementById(`avatar-${character.id}`);
+                if (activeBtn) {
+                    activeBtn.classList.add('active');
+                }
+            }
+
+          
+            function renderAvatars(personajes) {
+                avatarContainer.innerHTML = ''; // Limpiar el contenedor
+
+                personajes.forEach(character => {
+                    const button = document.createElement('button');
+                    button.id = `avatar-${character.id}`;
+                    button.className = 'avatar-button';
+                    button.onclick = () => displayCharacter(character);
+
+                    const img = document.createElement('img');
+                    img.src = character.image_src;
+                    // Fallback visual en caso de que las rutas locales (assets/...) fallen
+                    img.onerror = function() {
+                        this.onerror=null;
+                    };
+                    img.alt = `Avatar de ${character.name}`;
+
+                    button.appendChild(img);
+                    avatarContainer.appendChild(button);
+                });
+
+                // Mostrar el primer personaje por defecto
+                if (personajes.length > 0) {
+                    displayCharacter(personajes[0]);
+                }
+            }
+
+            /**
+             * Carga los datos de los personajes desde la API con manejo de errores y reintentos.
+             */
+            async function loadCharacters() {
+                const maxRetries = 3;
+                let lastError = null;
+
+                for (let i = 0; i < maxRetries; i++) {
+                    try {
+                        const response = await fetch(API_URL);
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+                        allCharacters = await response.json();
+                        renderAvatars(allCharacters);
+                        return; // Éxito, salir de la función
+                    } catch (error) {
+                        lastError = error;
+                        console.error(`Intento ${i + 1} fallido al cargar la API:`, error);
+                        if (i < maxRetries - 1) {
+                            // Aplicar un retardo (ej. 1s, 2s, 4s) antes de reintentar
+                            const delay = Math.pow(2, i) * 1000;
+                            await new Promise(resolve => setTimeout(resolve, delay));
+                        }   
+                    }
+                }
+
+                // Si todos los reintentos fallaron, usar datos de respaldo (con 8 personajes)
+                console.error('Fallo definitivo al cargar la API. Usando datos de respaldo.', lastError);
+
+               
+
+                // NOTA: Usamos console.error en lugar de alert() para notificar al usuario, siguiendo las reglas.
+                console.error('ADVERTENCIA: No se pudo conectar a la API local (http://localhost:3002). Se están usando datos de prueba. Asegúrate de que tu servidor Node.js esté corriendo.');
+            }
+
+            loadCharacters();
+        });
+    </script>
+<script>
+/* ---------- SCRIPTS PERSONAJES (SUSTITUIR ANTERIORES) ---------- */
+document.addEventListener('DOMContentLoaded', () => {
+  const icons = document.querySelectorAll('.char-icon');
+  const panelImage = document.getElementById('panel-img');
+
+  if (!panelImage || icons.length === 0) return; // seguridad
+
+  // Función que cambia la imagen con animación
+  function changePanelTo(selectedName) {
+    // Añadir clase para animar salida
+    panelImage.classList.add('change');
+
+    // Tras la animación (coincide con tu CSS .change), cambiar src y volver
+    setTimeout(() => {
+      panelImage.src = `assets/${selectedName}-panel.png`;
+      panelImage.classList.remove('change');
+    }, 180); // 150-220 ms funciona bien
+  }
+
+  // Asignar eventos a cada icono
+  icons.forEach(icon => {
+    icon.addEventListener('click', () => {
+      // quitar active a todos
+      icons.forEach(i => i.classList.remove('active'));
+
+      // marcar el seleccionado
+      icon.classList.add('active');
+
+      // obtener el panel a mostrar desde data-panel
+      const selected = icon.dataset.panel;
+      if (!selected) return;
+
+      // cambiar la imagen con animación
+      changePanelTo(selected);
+    });
+  });
+
+  // Activar el primero por defecto
+  const first = icons[0];
+  if (first) {
+    first.classList.add('active');
+    // cargar la imagen inicial (en caso el src no coincida)
+    const initial = 'cirrus';
+    panelImage.src = `assets/${initial}-panel.png`;
+  }
+});
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,791 @@
+/* ---------------------- */
+/*      RESET GENERAL      */
+/* ---------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Loved+by+the+King&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Smooch+Sans:wght@100..900&family=The+Nautigal:wght@400;700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  background-color: #ffffff;
+}
+
+h1{font-size: 3rem; 
+  font-family: "The Nautigal", cursive;
+  font-weight: 700;
+    font-size: 10rem;
+text-transform: capitalize}
+
+a{text-decoration: none;}
+/* CONTENEDOR PRINCIPAL */
+
+
+
+
+.container2{
+    margin: auto;
+    max-width: 1300px;
+    overflow: auto;
+    margin-top: -300px;
+}
+.display-1{
+    font-size: 3.5rem;
+}
+
+.btn{
+    display: inline-block;
+    font-size: 15px;
+    padding: 12px 40px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 4px;
+}
+
+.btn-dark{
+color: #ffffff;
+border: none;
+}
+
+#mainheader{
+    background: url(assets/main.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    color: white;
+    #navbar {
+        overflow: auto;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        a{
+            color: #ffffff;
+        }
+        .logo{
+            padding: 0  15px;
+             border-radius: 20px ;
+            background-color: #ffffff48;
+            float: left;
+            padding-top: 5px;
+            font-size: 1.5rem;
+            color: #ffffff;
+            height: 70px;
+            width: 120px;
+            font-weight: 300;
+        }
+        ul{
+            list-style: none;
+            float: right;
+            li{
+                float: left;
+            }
+            a{
+                display: block;
+                padding: 20px;
+                text-align: center;
+            }
+        }
+    }
+    #showcase{
+        text-align: center;
+        padding-top: 350px;
+        h1{
+            font-weight: 700;
+        }
+        a{
+            margin-top: 20px;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+/* Animación suave de flotación */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-18px); }
+  100% { transform: translateY(0px); }
+}
+
+/* ---------------------- */
+/*    SECCIÓN PRINCIPAL   */
+/* ---------------------- */
+
+
+.candy-section {
+  width: 100%;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+/* Nubes flotantes internas (decoración) */
+.floating-cloud {
+  position: absolute;
+  width: 260px;
+  opacity: 0.8;
+  animation: float 10s ease-in-out infinite;
+  z-index: 1;
+}
+
+.nube-1 { top: 870px; left: -40px; }
+.nube-2 { top:  850px; right: -45px; animation-delay: 2s; }
+.nube-3 { top:  860px; left: -30px; animation-delay: 3s; }
+.nube-4 { top:  840px; right: -60px; animation-delay: 1s; }
+.nube-5 { top: 870px;right: -10px; animation-delay: 1s; }
+
+/* ---------------------- */
+/*     PANEL PERSONAJE    */
+/* ---------------------- */
+
+.character-display {
+  width: 100%;
+  margin-top: 40px !important;
+  position: relative;
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+}
+
+/* panel rosado igual al figma */
+
+.character-panel {
+  width: 90%;
+  max-width: 1100px;
+  background: #FFD4EA;
+  border-radius: 30px;
+  padding: 50px 40px;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.12);
+  z-index: 30;
+}
+
+/* --- Imagen personaje --- */
+
+/* ------------------------------------------- */
+/*      ICONOS DE PERSONAJES (SELECCIÓN)       */
+/* ------------------------------------------- */
+
+.characters-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 40px 0 ;
+}
+
+.characters-icons img {
+  width: 85px;
+  height: 85px;
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,0.15));
+}
+
+/* Al pasar el mouse */
+.characters-icons img:hover {
+  transform: scale(1.15);
+    opacity: 50%;
+
+}
+
+/* Al seleccionar (clase activa) */
+.characters-icons img.active {
+  transform: scale(1.3);
+  opacity: 50%;
+  filter: drop-shadow(0 6px 16px rgba(0,0,0,0.3));
+}
+
+
+
+/* --- Texto del panel --- */
+
+.character-info h1 {
+  font-size: 2.8rem;
+  color: #5A2A72;
+  margin-bottom: 12px;
+}
+
+.character-info p {
+  font-size: 1.3rem;
+  color: #6D4A7A;
+  line-height: 1.5;
+}
+
+/* ---------------------- */
+/*       RESPONSIVE       */
+/* ---------------------- */
+
+@media (max-width: 900px) {
+
+  .cover-text {
+    font-size: 2.7rem;
+    bottom: 25%;
+  }
+
+  .cloud-left,
+  .cloud-right {
+    width: 170px;
+    bottom: 5%;
+  }
+
+  .character-panel {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 30px;
+  }
+
+  .character-image img {
+    width: 240px;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .cover-text {
+    font-size: 2.2rem;
+    bottom: 22%;
+    padding: 0 20px;
+  }
+
+  .floating-cloud {
+    display: none; /* En Figma no aparecen en mobile */
+  }
+
+
+  .character-info h1 {
+    font-size: 2.2rem;
+  }
+
+  .character-info p {
+    font-size: 1.05rem;
+  }
+
+  .cloud-left,
+  .cloud-right {
+    width: 130px;
+  }
+}
+/* Contenedor que centra la imagen */
+.panel-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+/* animación al cambiar panel */
+.panel-img {
+  transition: transform 0.18s ease, opacity 0.18s ease;
+}
+.panel-img.change {
+  opacity: 0;
+  transform: scale(0.98);
+}
+.char-icon {
+    width: 280px;      /* AJUSTA ESTE VALOR A TU GUSTO */
+    height: 180px;     /* OBLIGA A QUE SEAN IGUALES */
+    object-fit: contain;  /* Evita deformaciones */
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.char-icon.active {
+    transform: scale(1.25);    /* Se agranda al seleccionar */
+    filter: drop-shadow(0 0 10px #fff);
+}
+.panel-img {
+  width:979px ;
+  height: 903px;
+    object-fit: contain; /* No deforma la imagen */
+    display: block;
+    margin: 0 auto;      /* Centra la imagen */
+}
+
+/* ------- CONTENEDOR GENERAL ------- */
+.candy-section {
+    width: 100%;
+    margin-top: -300px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+/* ========================================
+   BLOQUE 1: IMAGEN + TEXTO (EN UNA FILA)
+   BLOQUE 2: AVATARES (DEBAJO)
+   ======================================== */
+
+#character-detail-section {
+    display: flex;
+    flex-direction: column; /* ← IMPORTANTE */
+    gap: 50px;
+    margin-top: 40px;
+}
+
+
+/* ------- BLOQUE SUPERIOR: IMAGEN + TEXTO ------- */
+.character-display {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 170px;
+}
+
+#character-image {
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+}
+
+.character-info {
+    position: relative;
+    width: 100%;
+    max-width: 350px;
+}
+
+/* Nube rosa detrás del nombre */
+.nube-rosa {
+    position: absolute;
+    top: -50px;
+    right:  -10px;
+    margin: 10px;
+    width: 350px;
+    opacity: 0.85;
+    z-index: -1;
+}
+
+/* Título */
+#character-name {
+  font-family: "Loved by the King";
+    font-size: 58px;
+    color: #ffffff;
+    margin-bottom: 60px;
+    margin-top: 40px;
+   text-align: center;
+    -webkit-text-stroke-width: 0.1px; 
+      -webkit-text-stroke-color: #ce09098e;
+}
+
+/* Descripción */
+#character-description {
+    font-family: "Smooch Sans", sans-serif;
+    font-size: 18px;
+    line-height: 2;
+    color: #d68e97;
+}
+
+
+
+/* ------- BLOQUE INFERIOR: AVATARES ------- */
+
+#avatar-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+}
+
+
+#avatar-container button {
+    width: 250px;
+    height: 250px;
+    margin-bottom: 10px;
+    object-fit: cover;
+    border: #ffffff;
+    background-color: #ffffff;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+#avatar-container img {
+    width: 220px;
+    height: 220px;
+    border-radius: 10px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+#avatar-container img:hover {
+    transform: scale(1.06);
+
+}
+
+
+/* ------- NUBES ------- */
+
+.nube-1, .nube-2, .nube-3, .nube-4, .nube-5 {
+    position: absolute;
+    bottom: -10px;
+    width: 220px;
+    opacity: 0.8;
+}
+
+.nube-1 { left: 5%; }
+.nube-2 { left: 20%; }
+.nube-3 { left: 40%; }
+.nube-4 { left: 62%; }
+.nube-5 { left: 80%; }
+
+
+.container-candy{
+    margin: auto;
+    max-width: 1300px;
+    overflow: auto;
+    margin-top: -450px;
+}
+/* ------- RESPONSIVE ------- */
+
+@media (max-width: 900px) {
+
+    .character-display {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    #avatar-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    #avatar-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+
+
+.nube-larga {
+  width: 500px;
+  margin-top: 350px;
+  margin-bottom: -265px;
+}
+.nube-derecha{
+  width: 500px;
+  margin-left:-300px;
+  margin-top: 350px;
+  margin-bottom: -265px;
+}
+.container-candy{
+  margin: 150px;
+  margin-top: -50 n0px;
+}
+
+/* ================================================= */
+/* 4. SECCIÓN DE ESCENAS (TARJETAS) */
+/* ================================================= */
+
+#scene-section {
+    display: flex; /* Distribuye las tarjetas en una fila */
+    gap: 15px; /* Espacio entre las tarjetas */
+    justify-content: center; /* Centra las tarjetas horizontalmente */
+    padding: 20px;
+}
+
+.scene-card {
+    width: 50%; /* Ancho para dos tarjetas en escritorio */
+    max-width: 400px;
+    background-color: white;
+    border: 3px solid black;
+    padding: 30px;
+    overflow: hidden; /* Para que la imagen respete el border-radius */
+    transition: transform 0.3s ease;
+}
+.scene-card2 {
+    width: 800px; /* Ancho para dos tarjetas en escritorio */
+    background-color: white;
+    border: 3px solid black;
+    padding: 30px;
+    overflow: hidden; /* Para que la imagen respete el border-radius */
+    transition: transform 0.3s ease;
+}
+
+.scene-card:hover {
+    transform: translateY(-5px);
+}
+
+.scene-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    height: 250px; 
+}
+.scene-card2 img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    /* Ajusta la altura si es necesario para que todas se vean uniformes */
+    height: 250px; 
+}
+
+.scene-card-content {
+    padding: 15px;
+    text-align: center;
+}
+.scene-card-content2 {
+    padding: 15px;
+    text-align: center;
+}
+
+.scene-card-content p {
+    font-size: 0.95rem;
+    color: #555;
+    font-style: italic;
+    margin: 0;
+}
+
+
+
+/* ================================================= */
+/* MEDIA QUERIES (PARA ADAPTAR A MÓVILES) */
+/* ================================================= */
+@media (max-width: 768px) {
+    #scene-section {
+        flex-direction: column; /* Apila las tarjetas verticalmente */
+        align-items: center;
+    }
+
+    .scene-card {
+        width: 80%; /* Más ancho en móviles */
+        max-width: none;
+    }
+
+  
+
+    #seasons-section h3 {
+        font-size: 1.6rem;
+    }
+    
+    .seasons-text-box {
+        padding: 20px;
+    }
+
+    .seasons-text-box p {
+        font-size: 1rem;
+    }
+}
+/* ================================================= */
+/* 6. SECCIÓN DE RAZONES (SEASONS/TEXTO DE FONDO CLARO) */
+/* ================================================= */
+
+#seasons-section {
+    /* Eliminamos background-image y background-size/repeat */
+    
+    padding: 100px 20px; 
+    min-height: 800px; 
+    position: relative; /* ¡CLAVE! Necesario para posicionar la imagen como fondo */
+    
+    /* Centrado del contenido (h3 y div) */
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    
+    margin-top: 0; 
+}
+
+/* 1. Estiliza la imagen para que sea el fondo de la sección */
+#seasons-section img {
+    position: absolute; /* Posición absoluta dentro de #seasons-section */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* ¡CLAVE! Esto asegura que la imagen cubra todo el contenedor sin deformarse */
+    object-fit: cover; 
+    
+    /* Envía la imagen detrás del texto */
+    z-index: 1; 
+    
+    /* Opcional: Para darle un poco de ese brillo/blanco superior de Figma */
+    filter: brightness(1.05); 
+}
+
+/* 2. Estiliza el encabezado y el texto (asegurándolos sobre la imagen) */
+#seasons-section h3,
+.seasons-text-box {
+    position: relative; /* Asegura que estos elementos estén sobre la imagen */
+    z-index: 2; /* Mayor que el z-index de la imagen (1) */
+}
+
+#seasons-section h3 {
+      font-family: "Poppins", sans-serif;
+
+    font-size: 2.2rem; 
+    color: #333; 
+    margin-bottom: 25px; 
+    text-transform: capitalize; 
+    text-align: center;
+    font-weight: bold; 
+    letter-spacing: 1px; 
+}
+
+.seasons-text-box {
+    max-width: 600px; 
+    width: 100%; 
+    margin: 0 auto; 
+    padding: 40px; 
+    
+    /* Estilo para la caja de texto flotante */
+    background-color: rgba(255, 255, 255, 0.331); 
+    border-radius: 12px; 
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); 
+    border: 1px dashed #a0a0a0; 
+    
+    text-align: left; 
+}
+
+.seasons-text-box p {
+    font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+    font-size: 1.1rem; 
+    color: #444; 
+    line-height: 1.8; 
+    margin-bottom: 20px; 
+}
+
+@media (max-width: 768px) {
+    #seasons-section {
+        padding: 60px 15px;
+        min-height: 600px;
+    }
+}
+.cloud-section {
+    position: relative; /* Contenedor de las nubes */
+    overflow: hidden; /* Oculta las nubes que se salen de la sección */
+}
+
+.floating-cloud-mover {
+    position: absolute;
+    width: 200px; 
+    height: auto;
+    opacity: 0.8;
+    z-index: 10; 
+}
+
+/* Nubes de "fondo" (más lentas) */
+.nube-1, .nube-2, .nube-3{
+    animation: moveRightToLeft 10s linear infinite; /* Duración larga: más lento */
+}
+
+/* Nubes de "frente" (más rápidas) */
+ .nube-4 ,.nube-5 {
+    animation: moveLeftToRight 20s linear infinite; /* Duración corta: más rápido */
+}
+.nube-larga {
+    animation: float 8s linear infinite; /* Duración corta: más rápido */
+}
+.nube-derecha {
+    animation: float 6s linear infinite; /* Duración corta: más rápido */
+}
+/* Mueve la nube de derecha a izquierda */
+@keyframes moveRightToLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-5vw); } /* Mover fuera del viewport a la izquierda */
+}
+
+/* Mueve la nube de izquierda a derecha */
+@keyframes moveLeftToRight {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(5vw); } /* Mover fuera del viewport a la derecha */
+}
+/* Animación suave de flotación */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); } /* Sube 18 píxeles */
+  100% { transform: translateY(0px); }
+}
+
+/* Mover la línea divisoria más cerca de los iconos */
+hr {
+  width: 300px;
+  border: none;
+  height: 3px;
+  background-color: #7b7b7b;
+  margin: 20px auto; /* Reducir el margen superior/inferior */
+}
+
+/* Darle más aire a los iconos de selección para que no estén tan juntos */
+.characters-icons {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* Aumentar espacio entre iconos */
+    margin: 40px 0 20px 0; /* Ajustar margen */
+}
+/* Ajustar el contenedor general del detalle del personaje */
+.container-candy{
+    margin: 30px;
+    padding: 30px;
+    max-width: 1300px;
+    overflow:hidden;
+    margin-top: -200px; 
+}
+
+/* Ajustar el contenedor flex de imagen y texto */
+.character-display {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Centrar todo el bloque */
+    align-items: flex-start;
+    gap: 80px; /* Reducir la separación entre imagen y texto */
+    padding: 0 20px;
+}
+
+
+/* =======================================
+   RESPONSIVE (Aseguramos que el bloque se apile)
+   ======================================= */
+
+@media (max-width: 900px) {
+    /* El bloque de imagen y texto se apila */
+    .character-display {
+        flex-direction: column; 
+        align-items: center;
+        text-align: center;
+        gap: 20px; 
+    }
+
+    #character-image {
+        width: 250px;
+        height: 250px;
+    }
+    
+    /* Avatares a 2 columnas */
+    #avatar-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    #avatar-container img {
+        width: 150px; /* Reducir tamaño de avatar en tablet */
+        height: 150px;
+    }
+}
+
+@media (max-width: 500px) {
+    /* Avatares a 1 columna */
+    #avatar-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    #avatar-container img {
+        width: 180px; /* Un poco más grande para ser el foco */
+        height: 180px;
+    }
+}
