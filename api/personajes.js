@@ -1,15 +1,11 @@
-// server.js (VERSIÓN MEJORADA)
-const express = require('express');
-const cors = require('cors');
-const app = express();
-const port = 3002;
+
 
 app.use(cors());
 
-// --- DATOS DE LOS PERSONAJES (ACTUALIZADOS Y CORREGIDOS) ---
-const personajes = [
+export default function handler(req, res) {
 
-  {
+  const personajes = [
+    {
     id: 2,
     name: "Skylar",
     info: "Skylar never had any ill intent when he would partake in such a hobby. When these photos were discovered by fellow classmate and class monitor, Baek Cirrus, he was filled with a sense of dread that he would tell Chan-il.",
@@ -65,10 +61,8 @@ const personajes = [
     image_src: "assets/avatar8.png",
     avatar_src: "assets/avatar8.png"
   }
-];
 
-app.get('/', (req, res) => {
-  res.json(personajes);
-});
+  ];
 
-module.exports = app;
+  res.status(200).json(personajes);
+}
