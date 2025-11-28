@@ -67,12 +67,10 @@ const personajes = [
   }
 ];
 
-// --- RUTA DE LA API ---
+// --- RUTA DE LA API (solo necesitamos la ruta de personajes) ---
 app.get('/api/personajes', (req, res) => {
   res.json(personajes);
 });
 
-// --- INICIO DEL SERVIDOR ---
-app.listen(port, () => {
-  console.log(`🚀 API de Personajes corriendo en http://localhost:${port}`);
-});
+// VERCEL: Exporta la función Express
+module.exports = app;
